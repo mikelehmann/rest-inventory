@@ -5,15 +5,15 @@
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  name: mongodb
+  name: rest-inventory-mongo
   labels:
-    run: mongodb
+    run: rest-inventory-mongo
 spec:
   replicas: 1
   revisionHistoryLimit: 5
   selector:
     matchLabels:
-      run: mongodb
+      run: rest-inventory-mongo
   strategy:
     rollingUpdate:
       maxSurge: 1
@@ -22,12 +22,12 @@ spec:
   template:
     metadata:
       labels:
-        run: mongodb
+        run: rest-inventory-mongo
     spec:
       containers:
       - image: mongo:3.2.8
         imagePullPolicy: Always
-        name: mongodb
+        name: rest-inventory-mongo
         ports:
         - containerPort: 27017
           protocol: TCP
@@ -38,9 +38,9 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: mongodb
+  name: rest-inventory-mongo
   labels:
-    run: mongodb
+    run: rest-inventory-mongo
 spec:
   ports:
   - name: http
@@ -48,6 +48,6 @@ spec:
     port: 27017
     targetPort: 27017
   selector:
-    run: mongodb
+    run: rest-inventory-mongo
   sessionAffinity: None
   type: NodePort
