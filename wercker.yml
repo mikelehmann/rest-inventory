@@ -27,7 +27,7 @@ deploy-to-cluster:
         server: $KUBERNETES_MASTER
         token: $KUBERNETES_TOKEN
         insecure-skip-tls-verify: true
-        command: create -f $WERCKER_ROOT/mongo.yaml -f $WERCKER_ROOT/inventory.yaml
+        command: create -f $WERCKER_ROOT/inventory.yaml
 
 register:
   steps:
