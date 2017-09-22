@@ -50,4 +50,4 @@ spec:
   selector:
     run: rest-inventory-mongo
   sessionAffinity: None
-  type: NodePort
+  
