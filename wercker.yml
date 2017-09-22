@@ -31,7 +31,7 @@ deploy-to-cluster:
 
 register:
   steps:
-    # Register Inventory REST service in APIP
+    # Register Inventory REST service in API PCS
     - shellcheck
 
     - script:
