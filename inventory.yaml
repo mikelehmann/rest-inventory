@@ -21,7 +21,7 @@ spec:
         run: rest-inventory
     spec:
       containers:
-      - image: registry-alpha.oracledx.com/sachin-pikle/inventory:latest
+      - image: registry-alpha.oracledx.com/mlehmann/rest-inventory:latest
         imagePullPolicy: Always
         name: rest-inventory
         ports:
