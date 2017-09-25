@@ -68,37 +68,37 @@ register:
             -H 'cache-control: no-cache' \
             -H 'content-type: application/json' \
             -d '{
-            "description": "test service description",
-            "implementation": {
-                  "executions": {
-                      "request": [
-                          "1"
-                      ],
-                      "response": [
-                          "2"
-                      ]
-                  },
-                  "policies": [
-                      {
-                          "id": "1",
-                          "type": "o:BackendRequest",
-                          "version": "1.0",
-                          "config": {
-                              "endpoints": [
-                                  {
-                                      "serviceAccount": "109",
-                                      "useProxy": false,
-                                      "url": "http://'"$INVENTORY_URL"'"
-                                  }
-                              ]
-                          }
-                      },
-                      {
-                          "id": "2",
-                          "type": "o:BackendResponse",
-                          "version": "1.0",
-                          "config": {}
-                      }
-                  ]
-              }
-            }'
+                 "implementation": {
+                     "executions": {
+                         "request": [
+                             "1"
+                         ],
+                         "response": [
+                             "2"
+                         ]
+                     },
+                     "policies": [
+                         {
+                             "id": "1",
+                             "type": "o:BackendRequest",
+                             "version": "1.0",
+                             "config": {
+                                 "endpoints": [
+                                     {
+                                         "name": "CCS Oracle Public Cloud",
+                                         "useProxy": false,
+                                         "url": "http://'"$INVENTORY_URL"'"
+                                     }
+                                 ]
+                             }
+                         },
+                         {
+                             "id": "2",
+                             "type": "o:BackendResponse",
+                             "version": "1.0",
+                             "config": {}
+                         }
+                     ]
+                 },
+                 "description": "Inventory Service from Container Management Cloud Service"
+              }'
