@@ -44,7 +44,7 @@ register:
     - script:
       name: "Wait for service LB to be provisioned and assigned an external IP"
       code: |
-        CONTAINER_HOST=
+        CONTAINER_HOST=$(./kubectl --server=$KUBERNETES_MASTER --token=$KUBERNETES_TOKEN --insecure-skip-tls-verify=true get service rest-inventory -o jsonpath={.status.loadBalancer.ingress[0].ip})
         echo 'Before until loop ... Container host=' $CONTAINER_HOST
         while [[ -z "$CONTAINER_HOST" ]]; do
           CONTAINER_HOST=$(./kubectl --server=$KUBERNETES_MASTER --token=$KUBERNETES_TOKEN --insecure-skip-tls-verify=true get service rest-inventory -o jsonpath={.status.loadBalancer.ingress[0].ip})
