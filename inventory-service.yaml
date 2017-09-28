@@ -12,7 +12,7 @@ spec:
   ports:
   - name: http
     protocol: TCP
-    port: 80
+    port: 30100
     targetPort: 8080
   selector:
     run: rest-inventory
