@@ -43,6 +43,26 @@ deploy-to-prod-cluster:
         insecure-skip-tls-verify: true
         command: create -f $WERCKER_ROOT/inventory-deployment-prod.yaml
 
+testapp:
+  steps:
+    - script:
+        name: Run and Test microservice
+        code: | 
+              java -jar  /pipeline/source/target/rest-inventory-mongodb-0.1.0.jar &
+              sleep 10
+              INVENTORY_CONTEXTPATH=$(egrep -o '"([^"]*)"' $WERCKER_SOURCE_DIR/src/main/java/io/CustomContainer.java | sed -r 's/"(.*)"/\1/')
+              echo 'Context path=' $INVENTORY_CONTEXTPATH
+              INVENTORY_URL=http://localhost:8080$INVENTORY_CONTEXTPATH/inventory
+              echo 'Microservice URL=' $INVENTORY_URL
+              if curl -s "$INVENTORY_URL" | grep "amount"
+              then
+                  # if the keyword is in the conent
+                  echo "Test passed"
+              else
+                  echo "Test failed"
+                  exit -1
+              fi
+
 register:
   steps:
     # Register Inventory REST service in API PCS
