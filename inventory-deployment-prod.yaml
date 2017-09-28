@@ -1,0 +1,32 @@
+#
+# Copyright (c) 2017 Oracle and/or its affiliates. All rights reserved.
+#
+
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: rest-inventory
+  labels:
+    run: rest-inventory
+spec:
+  replicas: 1
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        run: rest-inventory
+    spec:
+      containers:
+      - image: registry-alpha.oracledx.com/mlehmann/rest-inventory:latest
+        imagePullPolicy: Always
+        name: rest-inventory
+        ports:
+        - containerPort: 8080
+          protocol: TCP
+      imagePullSecrets:
+      - name: regalphasecret
+      restartPolicy: Always
