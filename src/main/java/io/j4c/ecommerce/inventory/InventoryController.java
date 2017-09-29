@@ -58,7 +58,7 @@ public class InventoryController {
 		ProductDO product = inventoryRepository.findOne(stockout.getProductId());
 
 		/*
-		 * default stockout value is 1 if not defined
+		 * default stockout value is 1  if not defined
 		 */
 		if (stockout != null && stockout.getAmount() == null) {
 			stockout.setAmount(new Integer(1));
