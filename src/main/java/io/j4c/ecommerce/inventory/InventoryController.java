@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017 Oracle and/or its affiliates. All rights reserved. Yes :)
+ * Copyright (c) 2017 Oracle and/or its affiliates. All rights reserved. 
  */
 package io.j4c.ecommerce.inventory;
 
