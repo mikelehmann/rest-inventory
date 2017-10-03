@@ -10,7 +10,7 @@ public class CustomContainer implements EmbeddedServletContainerCustomizer {
 	@Override
 	public void customize(ConfigurableEmbeddedServletContainer container) {
 
-		// set the container port - additional comment
+		// set the container port - additional comment  
 		container.setPort(8080);
 		
 		// set the context root
