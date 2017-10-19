@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017 Oracle and/or its affiliates. All rights reserved. 
+ * Copyright (c) 2017 Oracle and/or its affiliates. All rights reserved. AMEX change
  */
 package io.j4c.ecommerce.inventory;
 
