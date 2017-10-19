@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017 Oracle and/or its affiliates. All rights reserved. Change for CVS 
+ * Copyright (c) 2017 Oracle and/or its affiliates. All rights reserved. 
  */
 package io.j4c.ecommerce.inventory;
 
